@@ -1,0 +1,20 @@
+# curl --location --request POST 'http://localhost:7071/api/graphql' \
+#   --header 'Content-Type: application/json' \
+#   --data-raw '{"query":"query humans {human(id: \"1\") {appearsIn}}","variables":{}}'
+
+@hostname = localhost
+@port = 7071
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime iso8601}}
+
+###
+# Create a new School
+# @name demoCall
+POST http://{{host}}/api/graphql HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "query":"query humans {human(id: \"1\") {appearsIn}}",
+    "variables":{}
+}
