@@ -16,9 +16,11 @@ namespace StarWars
                 .ResolveAsync(async context => await data.GetDroidByIdAsync("3"));
             
             Field<HumanType>("human")
-                .Arguments(new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the human" }
-                ))
+                .Arguments(
+                    new QueryArguments(
+                        new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the human" }
+                    )
+                )
                 .ResolveAsync(async context => await data.GetHumanByIdAsync(context.GetArgument<string>("id"))
             );
 
@@ -27,7 +29,8 @@ namespace StarWars
             Field<DroidType>("droid")
                 .Arguments(
                     new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the droid" })
+                        new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "id", Description = "id of the droid" }
+                    )
                 )
                 .ResolveDelegate(func);
         }
