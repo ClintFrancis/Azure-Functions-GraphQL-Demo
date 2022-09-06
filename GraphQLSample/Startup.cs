@@ -1,5 +1,4 @@
 using GraphQL;
-using GraphQL.Caching;
 using GraphQL.DI;
 using GraphQL.Execution;
 using GraphQL.MicrosoftDI;
@@ -29,11 +28,7 @@ namespace Example
             // See also https://bitbucket.org/dadhi/dryioc/wiki/SelectConstructorOrFactoryMethod
             builder.Services.AddSingleton<IDocumentExecuter>(sp => new DocumentExecuter(
                 sp.GetRequiredService<IDocumentBuilder>(),
-                sp.GetRequiredService<IDocumentValidator>(),
-                sp.GetRequiredService<IComplexityAnalyzer>(),
-                sp.GetRequiredService<IDocumentCache>(),
-                sp.GetService<IEnumerable<IConfigureExecutionOptions>>() ?? Array.Empty<IConfigureExecutionOptions>(),
-                sp.GetRequiredService<IExecutionStrategySelector>()));
+                sp.GetRequiredService<IDocumentValidator>()));
 
             builder.Services.AddGraphQL(builder => builder
                 .AddNewtonsoftJson()

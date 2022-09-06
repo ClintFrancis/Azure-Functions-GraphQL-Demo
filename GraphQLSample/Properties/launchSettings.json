@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "GraphQLStarwars": {
+    "GraphQLSample": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7156",
+      "commandLineArgs": "--port 7064",
       "launchBrowser": false
     }
   }

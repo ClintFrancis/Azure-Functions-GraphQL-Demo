@@ -9,12 +9,17 @@
 @createdAt = {{$datetime iso8601}}
 
 ###
-# Create a new School
+# Make a sample GraphQL Call
 # @name demoCall
 POST http://{{host}}/api/graphql HTTP/1.1
 content-type: {{contentType}}
 
 {
-    "query":"query humans {human(id: \"1\") {appearsIn}}",
+    "query":"query humans {
+        human(id: \"1\") {
+            name, 
+            appearsIn
+        }
+    }",
     "variables":{}
 }
